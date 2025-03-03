@@ -61,6 +61,9 @@ namespace publisherproject.Migrations
                     b.Property<DateOnly>("PublishDate")
                         .HasColumnType("date");
 
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

@@ -12,8 +12,8 @@ using publisherproject.Data;
 namespace publisherproject.Migrations
 {
     [DbContext(typeof(PublisherContext))]
-    [Migration("20250227100028_update-book")]
-    partial class updatebook
+    [Migration("20250303112429_update")]
+    partial class update
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,10 +58,14 @@ namespace publisherproject.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("BasePrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasPrecision(7, 2)
+                        .HasColumnType("decimal(7,2)");
 
                     b.Property<DateOnly>("PublishDate")
                         .HasColumnType("date");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()

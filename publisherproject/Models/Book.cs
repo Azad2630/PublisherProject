@@ -17,7 +17,7 @@ namespace publisherproject.Models
         [Range(1, 13, ErrorMessage = "Price must be between 1 and 13.")]
         public int Rating { get; set; }
         public Author? Author { get; set; }
-        public int AuthorId { get; set; }
+        public int? AuthorId { get; set; }
         //public Cover Cover { get; set; }
     }
 }

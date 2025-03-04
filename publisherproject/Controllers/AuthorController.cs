@@ -104,5 +104,18 @@ namespace publisherproject.Controllers
             return NoContent();
 
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] RequestCreateAuthorDto createAuthorDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var authorModel = createAuthorDto.ToAuthorFromRequestCreateDto();
+
+            await _authorRepository.CreateAsync(authorModel);
+
+            return CreatedAtAction(nameof(GetAuthorById), new { id = authorModel.AuthorId }, authorModel);
+        }
     }
 }

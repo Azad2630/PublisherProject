@@ -14,6 +14,15 @@ namespace publisherproject.Mappers
                 LastName = updateAuthorRequestDto.LastName,
             };
         }
+
+        public static Author ToAuthorFromRequestCreateDto(this RequestCreateAuthorDto createDto)
+        {
+            return new Author
+            {
+                FirstName = createDto.FirstName,
+                LastName = createDto.LastName
+            };
+        }
         public static AuthorDto ToAuthorDto(this Author authorModel)
         {
             return new AuthorDto

@@ -16,8 +16,8 @@ namespace publisherproject.Data
 
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
-        //public DbSet<Artist> Artists { get; set; }
-        //public DbSet<Cover> Covers { get; set; }
+        public DbSet<Artist> Artists { get; set; }
+        public DbSet<Cover> Covers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

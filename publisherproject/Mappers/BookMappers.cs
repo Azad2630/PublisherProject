@@ -5,12 +5,12 @@ namespace publisherproject.Mappers
 {
     public static class BookMappers
     {
-        public static BookDto ToBookDto(this Book bookModel)
+        public static BookDto FromBookToBookDto(this Book bookModel)
         {
             return new BookDto
             {
                 Author = bookModel.Author,
-                AuthorId = bookModel.AuthorId,
+                AuthorId = (int)bookModel.AuthorId,
                 BasePrice = bookModel.BasePrice,
                 BookId = bookModel.BookId,
                 PublishDate = bookModel.PublishDate,
@@ -19,23 +19,17 @@ namespace publisherproject.Mappers
             };
         }
 
-        //public static Comment ToCommentFromCreate(this CreateCommentDto commentDto, int stockId)
-        //{
-        //    return new Comment
-        //    {
-        //        Title = commentDto.Title,
-        //        Content = commentDto.Content,
-        //        StockId = stockId
-        //    };
-        //}
-
-        //public static Comment ToCommentFromUpdate(this UpdateCommentRequestDto commentDto)
-        //{
-        //    return new Comment
-        //    {
-        //        Title = commentDto.Title,
-        //        Content = commentDto.Content,
-        //    };
-        //}
+        public static Book ToBook(this RequestCreateBookDto createBookDto)
+        {
+            return new Book
+            {
+                Title = createBookDto.Title,
+                PublishDate = createBookDto.PublishDate,
+                BasePrice = createBookDto.BasePrice,
+                Rating = createBookDto.Rating,
+                AuthorId = createBookDto.AuthorId
+            };
+        }
     }
 }
+

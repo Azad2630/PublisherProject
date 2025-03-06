@@ -31,7 +31,7 @@ namespace publisherproject.Mappers
                 FirstName = authorModel.FirstName,
                 LastName = authorModel.LastName,
 
-                Books = authorModel.Books.Select(c => c.ToBookDto()).ToList(),
+                Books = authorModel.Books.Select(c => c.FromBookToBookDto()).ToList(),
             };
         }
     }
